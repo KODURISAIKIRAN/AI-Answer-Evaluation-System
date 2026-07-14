@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Evaluation Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero-icon">📊</div>
+
+    <div class="header">
+        <h1>AI Evaluation Result</h1>
+        <p>Automatic descriptive answer evaluation report</p>
+    </div>
+
+    <div class="student-details">
+
+
+        <h2>
+        👨‍🎓 Student Details
+        </h2>
+
+
+        <div class="detail-row">
+
+        <span class="label">
+        Student Name
+        </span>
+
+        <span class="value">
+        {{ student_name }}
+        </span>
+
+        </div>
+
+
+
+        <div class="detail-row">
+
+        <span class="label">
+        Roll Number
+        </span>
+
+        <span class="value">
+        {{ roll_number }}
+        </span>
+
+        </div>
+
+
+
+        <div class="detail-row">
+
+        <span class="label">
+        Subject
+        </span>
+
+        <span class="value">
+        {{ subject_name }}
+        </span>
+
+        </div>
+
+
+
+        <div class="detail-row">
+
+        <span class="label">
+        Date & Time
+        </span>
+
+        <span class="value">
+        {{ evaluation_time }}
+        </span>
+
+        </div>
+
+
+    </div>
+
+    <h3>Uploaded Answer Sheets</h3>
+
+    <div class="image-gallery">
+
+        {% for image in image_names %}
+
+        <img
+            src="{{ url_for('uploaded_file', filename=image) }}"
+            class="answer-image">
+
+        {% endfor %}
+
+    </div>
+
+
+    <h2>
+        Question Wise Evaluation
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>Question</th>
+
+            <th>Similarity</th>
+
+            <th>Marks</th>
+
+        </tr>
+
+        {% for result in results %}
+
+        <tr>
+
+            <td>
+                Question {{ result.question }}
+            </td>
+
+            <td>
+                {{ result.percentage }}%
+            </td>
+
+            <td>
+                {{ result.marks }}/10
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <div class="summary-container">
+
+        <div class="summary-card">
+
+            <h3>Total Marks</h3>
+
+            <div class="marks">
+
+                {{ total_marks }}/50
+
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Percentage</h3>
+
+            <div class="score">
+
+                {{ final_percentage }}%
+
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Feedback</h3>
+
+            <div class="feedback">
+
+                {{ feedback }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="/">🔄 Evaluate Another Student</a>
+
+    <a href="/download_report">
+    📄 Download PDF Report
+    </a>
+    <a href="/history">
+        📜 View History
+    </a>
+
+</div>
+
+</body>
+
+</html>

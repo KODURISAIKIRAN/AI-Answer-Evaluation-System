@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+AI Insights
+
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+<div class="records-container">
+
+
+<h1>
+
+🤖 AI Performance Insights
+
+</h1>
+
+
+
+<div class="dashboard-grid">
+
+
+<div class="dash-card">
+
+
+<h2>🏆</h2>
+
+<h3>Top Performer</h3>
+
+
+{% if topper %}
+
+<h2>
+
+{{ topper[0] }}
+
+</h2>
+
+
+<p>
+
+{{ topper[1] }}%
+
+</p>
+
+
+{% else %}
+
+<p>No Data</p>
+
+{% endif %}
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>📊</h2>
+
+
+<h3>
+
+Class Average
+
+</h3>
+
+
+<h1>
+
+{{ average }}%
+
+</h1>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>⚠️</h2>
+
+
+<h3>
+
+Need Attention
+
+</h3>
+
+
+<h1>
+
+{{ weak_students }}
+
+</h1>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>
+
+🤖 AI Recommendation
+
+</h2>
+
+
+<p>
+
+{{ suggestion }}
+
+</p>
+
+
+</div>
+
+
+
+
+<a href="/faculty_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+
+</html>

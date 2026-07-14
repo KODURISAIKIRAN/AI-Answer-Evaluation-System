@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Evaluation History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero-icon">
+        📜
+    </div>
+
+    <div class="header">
+
+        <h1>
+            Evaluation History
+        </h1>
+
+        <p>
+            Previous Student Evaluations
+        </p>
+
+    </div>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Student Name</th>
+
+            <th>Roll Number</th>
+
+            <th>Subject</th>
+
+            <th>Total Marks</th>
+
+            <th>Percentage</th>
+
+            <th>Feedback</th>
+
+            <th>Date & Time</th>
+
+        </tr>
+
+        {% for row in records %}
+
+        <tr>
+
+            <td>{{ row[0] }}</td>
+
+            <td>{{ row[1] }}</td>
+
+            <td>{{ row[2] }}</td>
+
+            <td>{{ row[3] }}</td>
+
+            <td>{{ row[4] }}/50</td>
+
+            <td>{{ row[5] }}%</td>
+
+            <td>{{ row[6] }}</td>
+
+            <td>{{ row[7] }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <a href="/">
+        🔄 Back To Evaluation
+    </a>
+    <a href="/delete_history"
+    class="delete-btn"
+    onclick="return confirm('Delete all evaluation history?')">
+
+        🗑 Delete History
+
+    </a>
+</div>
+
+</body>
+
+</html>

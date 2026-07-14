@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Student Dashboard
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="dashboard-layout">
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+
+<h2>
+🎓 Student
+</h2>
+
+
+<p>
+AI Evaluation Portal
+</p>
+
+
+<a href="/student_dashboard">
+📊 Overview
+</a>
+
+
+<a href="/student_profile">
+👤 My Profile
+</a>
+
+
+<a href="/my_evaluations">
+📚 My Evaluations
+</a>
+
+
+<a href="/my_reports">
+📄 My Reports
+</a>
+
+
+<a href="/student_analytics">
+📈 Performance
+</a>
+
+
+<a href="/student_ai_feedback">
+🤖 AI Feedback
+</a>
+
+
+<a href="/achievements">
+🏆 Achievements
+</a>
+
+
+<a href="/student_settings">
+⚙ Settings
+</a>
+
+
+<a href="/logout">
+🚪 Logout
+</a>
+
+
+</div>
+
+
+
+
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+
+
+<!-- TOP BAR -->
+
+
+<div class="top-navbar">
+
+
+<div>
+
+<h2>
+🎓 Dashboard
+</h2>
+
+
+<p>
+Student Learning Panel
+</p>
+
+</div>
+
+
+
+<div class="top-user">
+
+
+<span>
+
+👨‍🎓 {{ username }}
+
+</span>
+
+
+
+<button id="theme-toggle" class="theme-btn">
+
+🌙
+
+</button>
+
+
+
+<a href="/logout">
+
+Logout
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- WELCOME -->
+
+
+<div class="welcome-box">
+
+
+<h1>
+
+👋 Welcome {{ username }}
+
+</h1>
+
+
+<p>
+
+Track your AI evaluated performance
+
+</p>
+
+
+</div>
+
+
+
+<p>
+
+Roll Number : {{ roll_number }}
+
+</p>
+
+
+
+
+
+<!-- CARDS -->
+
+
+<div class="dashboard-grid">
+
+
+
+<div class="dash-card">
+
+<h2>📝</h2>
+
+<h3>Tests Completed</h3>
+
+<h1>{{ total_tests }}</h1>
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+<h2>📊</h2>
+
+<h3>Average Score</h3>
+
+<h1>{{ average }}%</h1>
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+<h2>🏆</h2>
+
+<h3>Best Score</h3>
+
+<h1>{{ best }}%</h1>
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+<h2>📄</h2>
+
+<h3>Reports</h3>
+
+<h1>{{ total_tests }}</h1>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- PERFORMANCE GRAPH -->
+
+
+<div class="performance-box">
+
+
+<h2>
+
+📈 Performance Analysis
+
+</h2>
+
+
+<canvas id="performanceChart">
+
+</canvas>
+
+
+</div>
+
+
+
+
+
+
+<!-- RECENT -->
+
+
+<h2 style="margin-top:40px;">
+
+📚 Recent Evaluations
+
+</h2>
+
+
+
+<table>
+
+
+<tr>
+
+<th>Subject</th>
+
+<th>Marks</th>
+
+<th>Percentage</th>
+
+<th>Feedback</th>
+
+
+</tr>
+
+
+
+{% for r in records[:5] %}
+
+
+<tr>
+
+
+<td>{{ r[3] }}</td>
+
+<td>{{ r[4] }}/50</td>
+
+<td>{{ r[5] }}%</td>
+
+<td>{{ r[6] }}</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- DARK MODE SCRIPT -->
+
+
+<script>
+
+
+const btn =
+document.getElementById(
+"theme-toggle"
+);
+
+
+if(
+localStorage.getItem("theme")=="dark"
+){
+
+document.body.classList.add(
+"dark"
+);
+
+
+btn.innerHTML="☀";
+
+
+}
+
+
+
+btn.onclick=function(){
+
+
+document.body.classList.toggle(
+"dark"
+);
+
+
+
+if(
+document.body.classList.contains("dark")
+){
+
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+
+btn.innerHTML="☀";
+
+
+}
+
+
+else{
+
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+
+btn.innerHTML="🌙";
+
+
+}
+
+
+}
+
+
+</script>
+
+
+
+
+
+<!-- GRAPH SCRIPT -->
+
+<script>
+
+
+let graphLabels = JSON.parse(
+    '{{ graph_labels | tojson | safe }}'
+);
+
+
+let graphScores = JSON.parse(
+    '{{ graph_scores | tojson | safe }}'
+);
+
+
+
+const ctx =
+document.getElementById(
+"performanceChart"
+);
+
+
+
+new Chart(ctx, {
+
+
+type:"line",
+
+
+data:{
+
+
+labels:graphLabels,
+
+
+datasets:[{
+
+
+label:"Performance Percentage",
+
+
+data:graphScores,
+
+
+borderWidth:4,
+
+
+tension:0.4,
+
+
+fill:true
+
+
+}]
+
+
+},
+
+
+
+options:{
+
+
+responsive:true,
+
+
+plugins:{
+
+
+legend:{
+
+
+display:true
+
+
+}
+
+
+},
+
+
+scales:{
+
+
+y:{
+
+
+beginAtZero:true,
+
+
+max:100
+
+
+}
+
+
+}
+
+
+}
+
+
+});
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

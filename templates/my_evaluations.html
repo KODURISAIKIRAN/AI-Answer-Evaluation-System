@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+<title>
+
+My Evaluations
+
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="records-container">
+
+
+
+<h1>
+
+📚 My Evaluations
+
+</h1>
+
+
+
+
+{% if records %}
+
+
+<table>
+
+
+<tr>
+
+
+<th>
+
+Subject
+
+</th>
+
+
+<th>
+
+Marks
+
+</th>
+
+
+<th>
+
+Percentage
+
+</th>
+
+
+<th>
+
+Feedback
+
+</th>
+
+
+<th>
+
+Date
+
+</th>
+
+
+</tr>
+
+
+
+
+{% for r in records %}
+
+
+
+<tr>
+
+
+<td>
+
+{{ r[3] }}
+
+</td>
+
+
+<td>
+
+{{ r[4] }}/50
+
+</td>
+
+
+<td>
+
+{{ r[5] }}%
+
+</td>
+
+
+<td>
+
+{{ r[6] }}
+
+</td>
+
+
+<td>
+
+{{ r[7] }}
+
+</td>
+
+
+
+</tr>
+
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+{% else %}
+
+
+
+<div class="dash-card">
+
+
+<h2>
+
+📭
+
+</h2>
+
+
+<h3>
+
+No Evaluations Available
+
+</h3>
+
+
+<p>
+
+Your results will appear after faculty evaluates your answers.
+
+</p>
+
+
+</div>
+
+
+
+{% endif %}
+
+
+
+
+<a href="/student_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

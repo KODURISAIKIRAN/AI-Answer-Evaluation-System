@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Reports Management
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+<div class="records-container">
+
+
+<h1>
+
+📄 Reports Management
+
+</h1>
+
+
+
+<table>
+
+
+<tr>
+
+<th>
+Student
+</th>
+
+
+<th>
+Roll Number
+</th>
+
+
+<th>
+Subject
+</th>
+
+
+<th>
+Marks
+</th>
+
+
+<th>
+Percentage
+</th>
+
+
+<th>
+Feedback
+</th>
+
+
+<th>
+Date
+</th>
+
+
+</tr>
+
+
+
+{% for r in reports %}
+
+
+<tr>
+
+
+<td>
+
+{{ r[1] }}
+
+</td>
+
+
+<td>
+
+{{ r[2] }}
+
+</td>
+
+
+<td>
+
+{{ r[3] }}
+
+</td>
+
+
+<td>
+
+{{ r[4] }}/50
+
+</td>
+
+
+<td>
+
+{{ r[5] }}%
+
+</td>
+
+
+<td>
+
+{{ r[6] }}
+
+</td>
+
+
+<td>
+
+{{ r[7] }}
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+<a href="/faculty_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+</html>

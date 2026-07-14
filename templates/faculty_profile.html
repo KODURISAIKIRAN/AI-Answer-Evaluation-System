@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Faculty Profile</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="profile-container">
+
+
+<div class="profile-card">
+
+
+<div class="profile-icon">
+
+👨‍🏫
+
+</div>
+
+
+<h1>
+
+{{ name }}
+
+</h1>
+
+
+<p>
+
+Faculty Member
+
+</p>
+
+
+
+<div class="profile-info">
+
+
+<h3>
+
+📧 Email
+
+</h3>
+
+<p>
+
+{{ email }}
+
+</p>
+
+
+
+<h3>
+
+👤 Role
+
+</h3>
+
+<p>
+
+{{ role }}
+
+</p>
+
+
+
+<h3>
+
+📝 Total Evaluations Done
+
+</h3>
+
+<p>
+
+{{ total }}
+
+</p>
+
+
+</div>
+
+
+
+<a href="/faculty_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

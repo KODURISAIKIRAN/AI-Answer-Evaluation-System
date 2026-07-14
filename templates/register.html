@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        Register - AI Evaluation System
+    </title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="auth-container">
+
+
+    <div class="auth-icon">
+
+        🧑‍🏫
+
+    </div>
+
+
+    <div class="header">
+
+
+        <h1>
+
+            Create Account
+
+        </h1>
+
+
+        <p>
+
+            Register to access AI Evaluation System
+
+        </p>
+
+
+    </div>
+    {% if error %}
+
+    <div class="error-box">
+
+        ⚠️ {{ error }}
+
+    </div>
+
+    {% endif %}
+
+    <form method="POST">
+
+
+        <input
+        type="text"
+        name="name"
+        placeholder="Full Name"
+        required>
+
+
+
+        <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required>
+        <input
+        type="text"
+        name="roll_number"
+        placeholder="Roll Number (Only for Students)">
+
+
+        <div class="password-box">
+
+            <input
+            type="password"
+            id="registerPassword"
+            name="password"
+            placeholder="Create Password"
+            required>
+
+            <span onclick="togglePassword('registerPassword', this)">
+                👁️
+            </span>
+
+        </div>
+
+
+
+        <select
+        name="role"
+        required>
+
+
+            <option value="">
+
+                Select Account Type
+
+            </option>
+
+
+            <option value="faculty">
+
+                👨‍🏫 Faculty
+
+            </option>
+
+
+            <option value="student">
+
+                👨‍🎓 Student
+
+            </option>
+
+
+        </select>
+
+
+
+        <button type="submit">
+
+
+            🚀 Create Account
+
+
+        </button>
+
+
+    </form>
+
+
+
+    <div class="auth-link">
+
+        <a href="/login">
+
+            Already have an account? Login
+
+        </a>
+
+    </div>
+
+
+
+    <div class="auth-footer">
+
+        AI Assisted Descriptive Answer Evaluation System
+
+    </div>
+
+
+</div>
+
+<script>
+
+function togglePassword(id, icon){
+
+    let input = document.getElementById(id);
+
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        icon.innerHTML = "🙈";
+
+    }
+
+    else{
+
+        input.type = "password";
+
+        icon.innerHTML = "👁️";
+
+    }
+
+}
+
+</script>
+</body>
+
+
+</html>

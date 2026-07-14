@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Assisted Descriptive Answer Evaluation System
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <a href="/logout">
+
+    🚪 Logout
+
+    </a>
+
+<div class="container">
+
+    <div class="hero-icon">
+        🤖
+    </div>
+
+    <div class="header">
+
+        <h1>
+            AI Assisted Descriptive Answer Evaluation System
+        </h1>
+
+        <p>
+            Upload handwritten student answer sheets and evaluate automatically using AI.
+        </p>
+
+    </div>
+
+    <form
+        method="POST"
+        enctype="multipart/form-data">
+
+        <div class="student-card">
+
+            <h2>
+                👨‍🎓 Student Details
+            </h2>
+
+            <input
+                type="text"
+                name="student_name"
+                placeholder="Enter Student Name"
+                required>
+
+            <input
+                type="text"
+                name="roll_number"
+                placeholder="Enter Roll Number"
+                required>
+
+            <input
+                type="text"
+                name="subject_name"
+                placeholder="Enter Subject Name"
+                required>
+
+        </div>
+
+        <h3>
+            📝 Questions
+        </h3>
+
+        <textarea
+            name="questions"
+            rows="10"
+            placeholder="Q1. What is Artificial Intelligence?
+
+Q2. What is Machine Learning?
+
+Q3. What is Deep Learning?
+
+Q4. Explain Natural Language Processing.
+
+Q5. What is Computer Vision?"
+            required></textarea>
+
+        <h3>
+            📚 Model Answers
+        </h3>
+
+        <textarea
+            name="model_answers"
+            rows="18"
+            placeholder="A1. Artificial Intelligence is the simulation of human intelligence by machines.
+
+A2. Machine Learning is a subset of AI that enables systems to learn from data.
+
+A3. Deep Learning uses artificial neural networks to solve complex problems.
+
+A4. NLP helps computers understand, process and generate human language.
+
+A5. Computer Vision enables computers to understand and analyze images and videos."
+            required></textarea>
+
+        <h3>
+            📄 Upload Student Answer PDF
+        </h3>
+
+        <input
+            type="file"
+            name="answer_pdf"
+            accept=".pdf"
+            required>
+
+        <button type="submit">
+
+            🚀 Evaluate Answer Sheet
+
+        </button>
+
+    </form>
+
+</div>
+<!-- ========================= -->
+<!-- AI Loading Screen -->
+<!-- ========================= -->
+
+<div id="loading-screen">
+
+    <div class="ai-loader">
+
+        <div class="orbit"></div>
+
+        <div class="brain">
+
+            <img
+                src="{{ url_for('static', filename='images/ai-chip.png') }}"
+                alt="AI Chip"
+            >
+
+        </div>
+
+    </div>
+
+    <h2>
+
+        AI Evaluation in Progress
+
+    </h2>
+
+    <p id="loading-text">
+
+        Initializing AI Engine...
+
+    </p>
+
+    <div class="progress">
+
+        <div class="progress-bar"></div>
+
+    </div>
+
+</div>
+<script>
+
+const messages=[
+
+"Initializing AI Engine...",
+
+"Uploading Answer Sheet...",
+
+"Converting PDF to Images...",
+
+"Reading Handwritten Answers...",
+
+"Extracting Text using OCR...",
+
+"Understanding Student Answers...",
+
+"Comparing with Model Answers...",
+
+"Calculating Semantic Similarity...",
+
+"Assigning Marks...",
+
+"Generating Evaluation Report..."
+
+];
+
+let index=0;
+
+setInterval(()=>{
+
+    document.getElementById("loading-text").innerHTML=
+
+        messages[index];
+
+    index++;
+
+    if(index>=messages.length){
+
+        index=0;
+
+    }
+
+},2000);
+
+document.querySelector("form").addEventListener(
+
+"submit",
+
+function(){
+
+document.getElementById("loading-screen").style.display="flex";
+
+}
+
+);
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+AI Feedback
+
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="records-container">
+
+
+<h1>
+
+🤖 AI Performance Feedback
+
+</h1>
+
+
+
+
+<div class="dashboard-grid">
+
+
+
+<div class="dash-card">
+
+
+<h2>📊</h2>
+
+
+<h3>
+
+Average Score
+
+</h3>
+
+
+<h1>
+
+{{ average }}%
+
+</h1>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>💪</h2>
+
+
+<h3>
+
+Strength
+
+</h3>
+
+
+<p>
+
+{{ strength }}
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>📚</h2>
+
+
+<h3>
+
+Improvement Suggestion
+
+</h3>
+
+
+<p>
+
+{{ improvement }}
+
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<a href="/student_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

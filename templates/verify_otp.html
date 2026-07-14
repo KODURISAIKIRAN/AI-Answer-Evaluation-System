@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Verify OTP</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="auth-container">
+
+
+    <div class="auth-icon">
+
+        📩
+
+    </div>
+
+
+    <div class="header">
+
+
+        <h1>
+
+            Verify OTP
+
+        </h1>
+
+
+        <p>
+
+            Enter the OTP sent to your email
+
+        </p>
+
+
+    </div>
+
+
+
+    {% if error %}
+
+    <div class="error-box">
+
+        ⚠️ {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+
+    <form method="POST">
+
+
+        <div class="otp-box">
+
+            <input
+            type="text"
+            name="otp"
+            maxlength="6"
+            placeholder="000000"
+            required>
+
+        </div>
+
+
+        <button type="submit">
+
+            Verify OTP
+
+        </button>
+
+
+    </form>
+
+
+
+    <div class="auth-link">
+
+        <a href="/forgot_password">
+
+            Resend OTP
+
+        </a>
+
+    </div>
+
+
+
+</div>
+
+
+</body>
+
+</html>

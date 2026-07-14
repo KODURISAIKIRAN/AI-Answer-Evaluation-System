@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Student Records
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+<div class="records-container">
+
+
+<h1>
+
+👨‍🎓 Student Records
+
+</h1>
+
+
+
+<table>
+
+
+<tr>
+
+
+<th>
+Roll Number
+</th>
+
+
+<th>
+Student Name
+</th>
+
+
+<th>
+Tests Completed
+</th>
+
+
+<th>
+Average Score
+</th>
+
+
+</tr>
+
+
+
+{% for s in students %}
+
+
+<tr>
+
+
+<td>
+
+{{ s[0] }}
+
+</td>
+
+
+
+<td>
+
+{{ s[1] }}
+
+</td>
+
+
+
+<td>
+
+{{ s[2] }}
+
+</td>
+
+
+
+<td>
+
+{{ s[3] }}%
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+<a href="/faculty_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+
+</html>

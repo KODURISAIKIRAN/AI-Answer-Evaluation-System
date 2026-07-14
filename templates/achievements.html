@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+
+<title>
+
+Achievements
+
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+
+<body>
+
+
+
+<div class="records-container">
+
+
+
+<h1>
+
+🏆 My Achievements
+
+</h1>
+
+
+
+
+
+<div class="dashboard-grid">
+
+
+
+{% for badge in badges %}
+
+
+
+<div class="dash-card">
+
+
+
+<h2>
+
+{{ badge.split()[0] }}
+
+</h2>
+
+
+
+<h3>
+
+{{ badge }}
+
+</h3>
+
+
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+
+
+<div class="dash-card"
+style="margin-top:30px;">
+
+
+<h2>
+
+📊 Performance Summary
+
+</h2>
+
+
+
+<p>
+
+Evaluations Completed : {{ total_tests }}
+
+</p>
+
+
+
+<p>
+
+Average Score : {{ average }}%
+
+</p>
+
+
+
+
+</div>
+
+
+
+
+
+<a href="/student_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+
+</div>
+
+
+
+</body>
+
+
+
+</html>

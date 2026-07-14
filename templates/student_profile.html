@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+Student Profile
+
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="profile-container">
+
+
+<div class="profile-card">
+
+
+
+<div class="profile-icon">
+
+👨‍🎓
+
+</div>
+
+
+
+<h1>
+
+{{ name }}
+
+</h1>
+
+
+<p>
+
+Student Account
+
+</p>
+
+
+
+
+<div class="profile-info">
+
+
+<h3>
+
+📧 Email
+
+</h3>
+
+
+<p>
+
+{{ email }}
+
+</p>
+
+
+
+
+<h3>
+
+🎓 Roll Number
+
+</h3>
+
+
+<p>
+
+{{ roll }}
+
+</p>
+
+
+
+
+<h3>
+
+👤 Role
+
+</h3>
+
+
+<p>
+
+{{ role }}
+
+</p>
+
+
+
+
+<h3>
+
+📝 Total Evaluations
+
+</h3>
+
+
+<p>
+
+{{ total }}
+
+</p>
+
+
+
+</div>
+
+
+
+
+<a href="/student_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+
+</html>

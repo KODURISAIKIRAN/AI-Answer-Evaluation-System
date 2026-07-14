@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Login - AI Evaluation System</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="auth-icon">
+        🤖
+    </div>
+
+    <div class="header">
+
+        <h1>
+            AI Evaluation Login
+        </h1>
+
+        <p>
+            Login to continue your AI assessment dashboard
+        </p>
+
+    </div>
+
+
+    <form method="POST">
+
+        <input
+        type="email"
+        name="email"
+        placeholder="Enter Email"
+        required>
+
+
+        <div class="password-box">
+
+            <input
+            type="password"
+            id="loginPassword"
+            name="password"
+            placeholder="Enter Password"
+            required>
+
+            <span onclick="togglePassword('loginPassword', this)">
+                👁️
+            </span>
+
+        </div>
+        <div class="forgot-link">
+
+            <a href="/forgot_password">
+
+                Forgot Password?
+
+            </a>
+
+        </div>
+
+
+        <button type="submit">
+
+            🔐 Login
+
+        </button>
+
+    </form>
+
+
+    <a href="/register">
+
+        Create New Account
+
+    </a>
+
+</div>
+<script>
+
+function togglePassword(id, icon){
+
+    let input = document.getElementById(id);
+
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        icon.innerHTML = "🙈";
+
+    }
+
+    else{
+
+        input.type = "password";
+
+        icon.innerHTML = "👁️";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

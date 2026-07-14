@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+Analytics
+
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+<div class="records-container">
+
+
+<h1>
+
+📈 Analytics Dashboard
+
+</h1>
+
+
+
+<div class="dashboard-grid">
+
+
+<div class="dash-card">
+
+
+<h2>📝</h2>
+
+<h3>Total Evaluations</h3>
+
+<h1>
+
+{{ total }}
+
+</h1>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>📊</h2>
+
+<h3>Average Score</h3>
+
+
+<h1>
+
+{{ avg }}%
+
+</h1>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>🏆</h2>
+
+<h3>Excellent</h3>
+
+
+<h1>
+
+{{ excellent }}
+
+</h1>
+
+
+</div>
+
+
+
+
+<div class="dash-card">
+
+
+<h2>⚠️</h2>
+
+<h3>Need Improvement</h3>
+
+
+<h1>
+
+{{ weak }}
+
+</h1>
+
+
+</div>
+
+
+</div>
+
+
+
+<br>
+
+
+<h2>
+
+Performance Distribution
+
+</h2>
+
+
+
+<table>
+
+
+<tr>
+
+<th>
+
+Category
+
+</th>
+
+
+<th>
+
+Students
+
+</th>
+
+
+</tr>
+
+
+
+{% for f in feedback_data %}
+
+
+<tr>
+
+
+<td>
+
+{{ f[0] }}
+
+</td>
+
+
+
+<td>
+
+{{ f[1] }}
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+
+<a href="/faculty_dashboard">
+
+⬅ Back Dashboard
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+</html>
