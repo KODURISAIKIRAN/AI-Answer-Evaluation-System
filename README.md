@@ -1,8 +1,8 @@
-# 🤖 AI Assisted Answer Evaluation System
+# AI Assisted Answer Evaluation System
 
 An intelligent, automated system for evaluating handwritten descriptive answers using OCR and AI-powered similarity analysis. Built with Flask, PaddleOCR, and Sentence Transformers.
 
-## 📋 Overview
+## Overview
 
 This system revolutionizes the traditional answer sheet evaluation process by:
 - Extracting handwritten text from PDF answer sheets using OCR
@@ -11,9 +11,9 @@ This system revolutionizes the traditional answer sheet evaluation process by:
 - Providing comprehensive analytics for both faculty and students
 - Supporting role-based access control (Faculty and Student portals)
 
-## ✨ Features
+## Features
 
-### 👨‍🏫 Faculty Features
+### Faculty Features
 - **Automated Evaluation**: Upload student answer PDFs and get instant AI-powered evaluations
 - **Dashboard**: View total evaluations, student count, average scores, and recent activity
 - **Student Records**: Track all students with their evaluation history and average performance
@@ -23,7 +23,7 @@ This system revolutionizes the traditional answer sheet evaluation process by:
 - **Report Generation**: Download detailed PDF reports for each evaluation
 - **History Management**: View and manage all past evaluations
 
-### 👨‍🎓 Student Features
+### Student Features
 - **Personal Dashboard**: Track total tests, average score, and best performance
 - **Performance Graphs**: Visualize score trends over time
 - **My Evaluations**: View detailed results for all past evaluations
@@ -32,20 +32,20 @@ This system revolutionizes the traditional answer sheet evaluation process by:
 - **Achievements**: Earn badges based on performance (Excellent Performer, High Scorer, etc.)
 - **My Reports**: Access all evaluation reports
 
-### 🔐 Authentication & Security
+### Authentication & Security
 - User registration with role selection (Faculty/Student)
 - Secure password hashing with strength validation
 - Email-based password recovery with OTP verification
 - Session-based authentication
 - Role-based access control
 
-### 🧠 AI-Powered Evaluation
+### AI-Powered Evaluation
 - **OCR Technology**: PaddleOCR for accurate handwritten text extraction
 - **Semantic Analysis**: Sentence-BERT (all-mpnet-base-v2) for intelligent answer comparison
 - **Smart Scoring**: Cosine similarity-based marking from 1-10 per question
 - **Feedback Generation**: Automatic performance feedback (Excellent, Good, Average, Needs Improvement)
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 AI-Answer-Evaluation-System/
@@ -70,7 +70,7 @@ AI-Answer-Evaluation-System/
 └── reports/              # Generated evaluation reports
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **Flask 3.1.1**: Web framework
@@ -89,11 +89,8 @@ AI-Answer-Evaluation-System/
 - **Pillow**: Image processing
 - **OpenCV**: Computer vision tasks
 
-### Deployment
-- **Gunicorn 23.0.0**: WSGI HTTP server
-- **Docker**: Containerization support
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.10 or higher
@@ -155,7 +152,7 @@ docker run -p 8080:8080 \
   ai-evaluation-system
 ```
 
-## 🚀 Usage
+## Usage
 
 ### For Faculty
 
@@ -183,7 +180,7 @@ docker run -p 8080:8080 \
 5. **Get AI Feedback** for personalized improvement tips
 6. **Track Achievements** and earn performance badges
 
-## 📊 Evaluation Algorithm
+## Evaluation Algorithm
 
 The system uses a sophisticated similarity-based evaluation:
 
@@ -203,7 +200,7 @@ The system uses a sophisticated similarity-based evaluation:
    - 20-29% → 2 marks
    - <20% → 1 mark
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Users Table
 ```sql
@@ -231,7 +228,7 @@ CREATE TABLE history(
 )
 ```
 
-## 🔒 Security Features
+## Security Features
 
 - **Password Requirements**: Minimum 8 characters with uppercase, lowercase, numbers, and special characters
 - **Password Hashing**: Werkzeug security for secure password storage
@@ -240,7 +237,7 @@ CREATE TABLE history(
 - **OTP Verification**: Email-based password recovery
 - **Auto-deletion**: Uploaded files removed after 30 minutes
 
-## 📧 Email Configuration
+## Email Configuration
 
 The system uses Gmail SMTP for password recovery. To set up:
 
@@ -248,7 +245,7 @@ The system uses Gmail SMTP for password recovery. To set up:
 2. Generate an [App Password](https://myaccount.google.com/apppasswords)
 3. Use the app password in the `MAIL_PASSWORD` environment variable
 
-## 🎨 UI Features
+## UI Features
 
 - Clean, modern interface
 - Responsive design
@@ -258,7 +255,7 @@ The system uses Gmail SMTP for password recovery. To set up:
 - Dashboard cards with statistics
 - Intuitive navigation
 
-## ⚙️ Configuration
+## Configuration
 
 ### Environment Variables
 - `SECRET_KEY`: Flask session secret (default: ai_evaluation_secret_key)
@@ -271,7 +268,7 @@ The system uses Gmail SMTP for password recovery. To set up:
 - Auto-deletion after 30 minutes to save storage
 - Generated reports saved in `reports/` directory
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### OCR Issues
 - Ensure handwriting is clear and readable
@@ -289,7 +286,7 @@ The system uses Gmail SMTP for password recovery. To set up:
 - Check SQLite3 is properly installed
 - Verify database schema is created on first run
 
-## 📝 Answer Format Guidelines
+## Answer Format Guidelines
 
 ### Model Answers Format
 ```
@@ -313,36 +310,23 @@ A5. Fifth answer text here
 5. Fifth answer text here
 ```
 
-## 🤝 Contributing
+## Authors
 
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+- [A Shankar Srivathsa](https://github.com/ShankarSrivathsa)
+- Dinesh Sai Y
+- [K Sai Kiran](https://github.com/KODURISAIKIRAN)
 
-## 📄 License
+## Academic Project
 
-This project is available for educational and commercial use.
+This project was developed as a mini project for academic purposes, demonstrating the practical application of AI and machine learning in educational assessment systems.
 
-## 👥 Authors
+## Acknowledgments
 
-Developed for automating the educational evaluation process using cutting-edge AI technology.
-
-## 🙏 Acknowledgments
-
+- Our academic institution for guidance and support
 - PaddleOCR for robust OCR capabilities
 - Sentence-Transformers for semantic similarity
 - Flask community for excellent documentation
 - Contributors to all open-source libraries used
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Create an issue in the repository
-- Contact the development team
-- Check documentation for common solutions
 
 ---
 
