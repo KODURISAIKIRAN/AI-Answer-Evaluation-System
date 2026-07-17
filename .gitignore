@@ -1,0 +1,40 @@
+#Python-specific:
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+venv/, env/, ENV/
+
+#Project-specific:
+
+evaluation.db 
+# Your SQLite database with user data
+
+uploads/ 
+# Temporary PDFs and images
+reports/
+# Generated evaluation reports
+.env 
+# Environment variables
+
+#IDE/Editor:
+
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store (Mac)
+
+#PaddleOCR:
+
+~/.paddleocr/ (model cache, though usually in home directory)
+inference/ (if models download locally)
+
+#Logs & temporary:
+
+*.log
+.pytest_cache/
+.coverage
