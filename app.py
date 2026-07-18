@@ -84,9 +84,7 @@ print("OCR Ready!")
 
 print("Loading Similarity Model...")
 
-similarity_model = SentenceTransformer(
-    "all-mpnet-base-v2"
-)
+similarity_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 print("Similarity Model Ready!")
 conn = sqlite3.connect(
